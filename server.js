@@ -6,6 +6,9 @@ import productRoutes from './router/productRoutes.js'
 import userRoutes from './router/userRoutes.js'
 import orderRoutes from './router/orderRoutes.js'
 
+
+const PORT=process.env.PORT || 3000
+
 dotenv.config()
 connectDb()
 
@@ -21,6 +24,6 @@ app.get('/',(req,res)=>{
     console.log('app running')
     res.send('api running')
 })
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log('server online')
 })

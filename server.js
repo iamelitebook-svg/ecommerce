@@ -5,7 +5,7 @@ import connectDb from './mongodb.js'
 import productRoutes from './router/productRoutes.js'
 import userRoutes from './router/userRoutes.js'
 import orderRoutes from './router/orderRoutes.js'
-import path from 'path'
+// import path from 'path'
 
 
 const PORT = process.env.PORT || 3000
@@ -28,17 +28,17 @@ app.use('/api/orders', orderRoutes)
 
 
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
-if (process.env.NODE_ENV === 'production' || true) {
-    // Serve production assets from the frontend build folder
-    app.use(express.static(path.join(__dirname, '/frontend/dist')));
+// if (process.env.NODE_ENV === 'production' || true) {
+//     // Serve production assets from the frontend build folder
+//     app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
-    // Point all routing traffic right to your index.html entry point
-    app.get('*', (req, res) =>
-        res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
-    );
-}
+//     // Point all routing traffic right to your index.html entry point
+//     app.get('*', (req, res) =>
+//         res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
+//     );
+// }
 
 
 app.listen(PORT, () => {

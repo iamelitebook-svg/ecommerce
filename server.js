@@ -40,9 +40,6 @@ if (process.env.NODE_ENV === 'production' || true) {
     );
 }
 
-app.listen(PORT, () => {
-    console.log('server online');
-});
 
 app.listen(PORT, () => {
     console.log('server online')

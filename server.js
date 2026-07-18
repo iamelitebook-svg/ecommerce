@@ -5,11 +5,13 @@ import connectDb from './mongodb.js'
 import productRoutes from './router/productRoutes.js'
 import userRoutes from './router/userRoutes.js'
 import orderRoutes from './router/orderRoutes.js'
-// import path from 'path'
-
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 const PORT = process.env.PORT || 3000
 
+const __filename=fileURLToPath(import.meta.url)
+const __dirname=path.dirname(filename)
 dotenv.config()
 connectDb()
 
@@ -21,25 +23,11 @@ app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 
-// app.get('/',(req,res)=>{
-//     console.log('app running')
-//     res.send('api running')
-// })
+app.use(express.static(path.join(__dirname,'./frontend/dist')))
 
-
-
-// const __dirname = path.resolve();
-
-// if (process.env.NODE_ENV === 'production' || true) {
-//     // Serve production assets from the frontend build folder
-//     app.use(express.static(path.join(__dirname, '/frontend/dist')));
-
-//     // Point all routing traffic right to your index.html entry point
-//     app.get('*', (req, res) =>
-//         res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
-//     );
-// }
-
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'./frontend/dist','index.html'))
+})
 
 app.listen(PORT, () => {
     console.log('server online')

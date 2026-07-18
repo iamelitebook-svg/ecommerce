@@ -35,7 +35,7 @@ const PlaceOrderScreen = () => {
             };
 
             // 4. Fire the POST request to your backend endpoint
-            const { data } = await axios.post('http://localhost:3000/api/orders', orderPayload);
+            const { data } = await axios.post('/api/orders', orderPayload);
 
             // 5. If successful, clear out the cart local storage records and show a success page
             localStorage.removeItem('cartItems');

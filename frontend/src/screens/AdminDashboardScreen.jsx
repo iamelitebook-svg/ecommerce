@@ -20,7 +20,7 @@ const AdminDashboardScreen = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const { data } = await axios.get('http://localhost:3000/api/orders');
+        const { data } = await axios.get('/api/orders');
         setOrders(data);
         setLoading(false);
       } catch (err) {
@@ -46,7 +46,7 @@ const AdminDashboardScreen = () => {
         },
       };
 
-      await axios.post('http://localhost:3000/api/products', {
+      await axios.post('/api/products', {
         name,
         price: Number(price),
         image,

@@ -25,7 +25,7 @@ const RegisterScreen = () => {
 
         try {
             // 2. Call your Express backend registration POST route
-            const { data } = await axios.post('http://localhost:3000/api/users/register', {
+            const { data } = await axios.post('/api/users/register', {
                 name,
                 email,
                 password,

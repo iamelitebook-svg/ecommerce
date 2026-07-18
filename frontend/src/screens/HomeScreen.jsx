@@ -11,7 +11,7 @@ const HomeScreen = () => {
         const fetchProducts = async () => {
             try {
                 // Calls the Express server API route directly
-                const { data } = await axios.get('http://localhost:3000/api/products');
+                const { data } = await axios.get('/api/products');
                 setProducts(data);
                 setLoading(false);
             } catch (err) {
